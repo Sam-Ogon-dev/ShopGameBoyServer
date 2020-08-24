@@ -43,7 +43,7 @@ function DB() {
         let search = [];
 
         if(genre && genre !== "8") { search.push(`genre="${genre}"`) }
-        if(searchTitle) { search.push(`title="${searchTitle}"`) }
+        if(searchTitle) { search.push(`title LIKE "%${searchTitle}%"`) }
         if(search.length) { search = "WHERE " + search.join(" AND ") }
 
         if(price) { sort = "ORDER BY price" + (price === "down" ? " DESC" : "") }
